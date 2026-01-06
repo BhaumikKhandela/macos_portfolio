@@ -1,9 +1,11 @@
+import Navbar from "./components/NavBar"
+
 function App() {
   
   return (
-    <div>
-      <h1>Welcome to my MacFolio</h1>
-    </div>
+   <main>
+    <Navbar />
+   </main>
   )
 }
 
