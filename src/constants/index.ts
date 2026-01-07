@@ -1,3 +1,5 @@
+import type { WindowConfigKeyType } from "../components/store/window";
+
 const navLinks = [
   {
     id: 1,
@@ -35,7 +37,13 @@ const navIcons = [
   },
 ];
 
-const dockApps = [
+type DockApp = {
+  id: WindowConfigKeyType,
+  name: string;
+  icon: string;
+  canOpen: boolean;
+}
+const dockApps: DockApp[] = [
   {
     id: "finder",
     name: "Portfolio", // was "Finder"
@@ -67,7 +75,7 @@ const dockApps = [
     canOpen: true,
   },
   {
-    id: "trash",
+    id: "txtfile",
     name: "Archive", // was "Trash"
     icon: "trash.png",
     canOpen: false,
@@ -105,16 +113,12 @@ const techStack = [
     items: ["React.js", "Next.js", "TypeScript"],
   },
   {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
-  },
-  {
     category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
+    items: ["Tailwind CSS", "CSS"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: ["Node.js", "Express", "Hono"],
   },
   {
     category: "Database",
@@ -501,6 +505,6 @@ const WINDOW_CONFIG = {
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-};
+} as const;
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
