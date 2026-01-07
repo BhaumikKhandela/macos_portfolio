@@ -3,9 +3,11 @@ import { Tooltip } from "react-tooltip";
 import { dockApps } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import useWindowStore, { type WindowConfigKeyType } from "./store/window";
 
 export const Dock = () => {
   const dockRef = useRef<HTMLDivElement | null>(null);
+  const { openWindow , closeWindow , windows } = useWindowStore();
 
   useGSAP(() => {
     const dock = dockRef.current;
@@ -55,8 +57,16 @@ export const Dock = () => {
       dock.removeEventListener("mouseleave", resetIcons);
     };
   }, []);
-  const toggleApp = (app: { id: string; canOpen: boolean }) => {
-    //TODO Implement Open Window Logic
+  const toggleApp = (app: { id: WindowConfigKeyType; canOpen: boolean }) => {
+    if(!app.canOpen) return;
+
+    const window = windows[app.id];
+
+    if(window.isOpen){
+      closeWindow(app.id);
+    } else {
+      openWindow(app.id)
+    }
   };
   return (
     <section id="dock">
