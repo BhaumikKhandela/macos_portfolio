@@ -1,22 +1,28 @@
 import gsap from "gsap";
-import  {Draggable}  from "gsap/all";
+import { Draggable } from "gsap/all";
 
-import { Dock, Navbar, Welcome } from "./components"
-import { Terminal } from "./windows";
+import { Dock, Navbar, Welcome } from "./components";
+import { Finder, Image, Resume, Safari, Terminal, TextWindow } from "./windows";
+import { Contact } from "lucide-react";
 
 gsap.registerPlugin(Draggable);
 
 function App() {
-  
   return (
-   <main>
-    <Navbar />
-    <Welcome />
-    <Dock />
+    <main>
+      <Navbar />
+      <Welcome />
+      <Dock />
 
-    <Terminal />
-   </main>
-  )
+      <Terminal />
+      <Safari />
+      <Resume />
+      <Finder />
+      <TextWindow />
+      <Image />
+      <Contact />
+    </main>
+  );
 }
 
-export default App
+export default App;
