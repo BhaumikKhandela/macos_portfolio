@@ -1,6 +1,11 @@
 import type { WindowConfigKeyType } from "../components/store/window";
 
-const navLinks = [
+type NavLinkType = {
+  id: number;
+  name: string;
+  type: WindowConfigKeyType;
+}
+const navLinks: NavLinkType[] = [
   {
     id: 1,
     name: "Projects",
@@ -218,6 +223,7 @@ export {
   photosLinks,
   gallery,
 };
+
 
 const WORK_LOCATION = {
   id: 1,
@@ -492,7 +498,9 @@ export const locations = {
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
   trash: TRASH_LOCATION,
-};
+} as const ;
+
+export type WorkLocationType = typeof locations.work.children
 
 const INITIAL_Z_INDEX = 1000;
 
