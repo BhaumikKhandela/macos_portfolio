@@ -3,6 +3,6 @@ import Safari from "./Safari";
 import Finder from "./Finder";
 import TextWindow from "./Text";
 import Image from "./Image";
-import Resume from "./resume";
+import Resume from "./Resume";
 import Contact from "./Contact";
 export { Terminal, Safari, Resume, Finder, TextWindow, Image, Contact };
