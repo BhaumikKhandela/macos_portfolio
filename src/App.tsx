@@ -2,8 +2,8 @@ import gsap from "gsap";
 import { Draggable } from "gsap/all";
 
 import { Dock, Navbar, Welcome } from "./components";
-import { Finder, Image, Resume, Safari, Terminal, TextWindow } from "./windows";
-import { Contact } from "lucide-react";
+import { Contact, Finder, Image, Resume, Safari, Terminal, TextWindow } from "./windows";
+
 
 gsap.registerPlugin(Draggable);
 
