@@ -2,7 +2,16 @@ import gsap from "gsap";
 import { Draggable } from "gsap/all";
 
 import { Dock, Home, Navbar, Welcome } from "./components";
-import { Contact, Finder, Image, Resume, Safari, Terminal, TextWindow} from "./windows";
+import {
+  Contact,
+  Finder,
+  GitHub,
+  Image,
+  Resume,
+  Safari,
+  Terminal,
+  TextWindow,
+} from "./windows";
 
 
 gsap.registerPlugin(Draggable);
@@ -17,6 +26,7 @@ function App() {
       
       <Terminal />
       <Safari />
+      <GitHub />
       <Resume />
       <Finder />
       <TextWindow />

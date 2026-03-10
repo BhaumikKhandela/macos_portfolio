@@ -2,11 +2,12 @@ import { WindowControls } from "../components";
 import WindowWrapper from "../components/hoc/WindowWrapper";
 import useWindowStore from "../components/store/window";
 
+interface ImageWindowData {
+  name: string;
+  imageUrl: string;
+}
+
 const ImageWindowContent = () => {
-  interface ImageWindowData {
-    name: string;
-    imageUrl: string;
-  }
   const { windows } = useWindowStore();
   const rawData = windows.imgfile?.data;
 
