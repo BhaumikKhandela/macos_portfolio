@@ -7,7 +7,7 @@ import useWindowStore, { type WindowConfigKeyType } from "./store/window";
 
 export const Dock = () => {
   const dockRef = useRef<HTMLDivElement | null>(null);
-  const { openWindow , closeWindow , windows } = useWindowStore();
+  const { openWindow, closeWindow, focusWindow, windows } = useWindowStore();
 
   useGSAP(() => {
     const dock = dockRef.current;
@@ -58,18 +58,25 @@ export const Dock = () => {
     };
   }, []);
   const toggleApp = (app: { id: WindowConfigKeyType; canOpen: boolean }) => {
-    if(!app.canOpen) return;
+    if (!app.canOpen) return;
 
     const window = windows[app.id];
 
-    if(window.isOpen){
+    // Keep GitHub consistent when many windows are open:
+    // if it is already mounted, bring it to front instead of toggling closed.
+    if (app.id === "photos" && window.isOpen) {
+      focusWindow("photos");
+      return;
+    }
+
+    if (window.isOpen) {
       closeWindow(app.id);
     } else {
-      openWindow(app.id)
+      openWindow(app.id);
     }
   };
   return (
-    <section id="dock">
+    <section id="dock" style={{ zIndex: 5000 }}>
       <div ref={dockRef} className="dock-container">
         {dockApps.map(({ id, name, icon, canOpen }) => (
           <div key={id} className="relative flex justify-center">

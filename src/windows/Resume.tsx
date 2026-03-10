@@ -1,12 +1,7 @@
 import { DownloadIcon } from "lucide-react";
 import { WindowControls } from "../components";
 import WindowWrapper from "../components/hoc/WindowWrapper";
-import { Document, Page, pdfjs } from "react-pdf";
 
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc =
-  `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`.toString();
 const Resume = () => {
   return (
     <>
@@ -15,7 +10,7 @@ const Resume = () => {
         <h2>Resume.pdf</h2>
 
         <a
-          href="files/resume.pdf"
+          href="/files/resume.pdf"
           download
           className="cursor-pointer"
           title="Download resume"
@@ -23,9 +18,11 @@ const Resume = () => {
           <DownloadIcon className="icon" />
         </a>
       </div>
-      <Document file="files/resume.pdf">
-        <Page pageNumber={1} renderTextLayer renderAnnotationLayer />
-      </Document>
+      <iframe
+        src="/files/resume.pdf"
+        title="Resume PDF"
+        className="w-[820px] h-[70vh] bg-white"
+      />
     </>
   );
 };
