@@ -7,7 +7,7 @@ const Navbar = () => {
   const {openWindow} = useWindowStore();
 
   return (
-    <nav>
+    <nav className="max-sm:hidden">
       <div>
         <img src="/images/logo.svg" alt="logo" />
         <p className="font-bold">Bhaumik's Portfolio</p>

@@ -12,7 +12,7 @@ import {
   Terminal,
   TextWindow,
 } from "./windows";
-
+import MobileShell from "./mobile/MobileShell";
 
 gsap.registerPlugin(Draggable);
 
@@ -20,18 +20,25 @@ function App() {
   return (
     <main>
       <Navbar />
-      <Welcome />
-      <Dock />
-      <Home />
-      
-      <Terminal />
-      <Safari />
-      <GitHub />
-      <Resume />
-      <Finder />
-      <TextWindow />
-      <Image />
-      <Contact />
+
+      {/* Desktop / tablet experience */}
+      <div className="hidden sm:block">
+        <Welcome />
+        <Dock />
+        <Home />
+
+        <Terminal />
+        <Safari />
+        <GitHub />
+        <Resume />
+        <Finder />
+        <TextWindow />
+        <Image />
+        <Contact />
+      </div>
+
+      {/* iPhone-style mobile shell */}
+      <MobileShell />
     </main>
   );
 }

@@ -4,8 +4,9 @@
 
 html,
 body {
-  width: 100dvw;
-  overflow: hidden;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
   height: 100dvh;
   background-image: url("/images/wallpaper.png");
   background-size: cover;
@@ -33,22 +34,18 @@ body {
 
 @layer base {
   main {
-    @apply w-dvw h-dvh overflow-hidden;
+    @apply w-full h-dvh overflow-hidden;
   }
 
   nav {
     @apply flex justify-between items-center bg-white/50 backdrop-blur-3xl p-2 px-5 select-none;
 
     div {
-      @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
-
-      &:last-child {
-        @apply max-sm:hidden;
-      }
+      @apply flex items-center max-sm:w-full max-sm:justify-between gap-5;
     }
 
     ul {
-      @apply flex items-center gap-5 max-sm:hidden;
+      @apply flex items-center gap-5;
 
       p {
         @apply text-sm cursor-pointer hover:underline transition-all;
@@ -64,6 +61,286 @@ body {
 @layer components {
   .icon {
     @apply p-1 hover:bg-gray-200 rounded hover:cursor-default;
+  }
+
+  #mobile-shell {
+    @apply sm:hidden h-dvh w-full max-w-full box-border overflow-x-hidden flex flex-col text-slate-900 px-4 pb-4;
+    background-image: url("/images/iphone.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .mobile-status-bar {
+    @apply flex items-center justify-between pt-3 pb-2 text-[11px] text-slate-800;
+  }
+
+  .mobile-app-header {
+    @apply flex items-center justify-between pb-3;
+  }
+
+  .mobile-shell-main {
+    @apply flex-1 overflow-y-auto pb-6 space-y-5 flex flex-col;
+  }
+
+  .mobile-home-grid {
+    @apply grid grid-cols-3 gap-4 mt-10 w-full;
+  }
+
+  .mobile-app-icon {
+    @apply flex flex-col items-center justify-center py-3 active:scale-95 transition-transform;
+  }
+
+  .mobile-app-icon-inner {
+    @apply w-12 h-12 rounded-2xl flex items-center justify-center;
+  }
+
+  .mobile-app-label {
+    @apply text-[11px] text-slate-900 mt-1;
+  }
+
+  .mobile-widget {
+    @apply mt-2 rounded-3xl bg-white/90 px-4 py-4 flex flex-col text-slate-900;
+  }
+
+  .mobile-widget-pill {
+    @apply px-3 py-1 rounded-full bg-slate-200/90 text-[11px] text-slate-900;
+  }
+
+  .mobile-app-screen {
+    @apply space-y-4;
+  }
+
+  .mobile-home-indicator {
+    @apply mx-auto mt-2 h-1.5 w-16 rounded-full bg-slate-600/80;
+  }
+
+  .mobile-notes {
+    @apply bg-white/95 rounded-3xl px-5 pt-5 pb-4 text-slate-900 space-y-4 shadow-sm;
+  }
+
+  .mobile-notes-header {
+    @apply space-y-1;
+  }
+
+  .mobile-notes-subtitle {
+    @apply text-xs uppercase tracking-wide text-slate-400;
+  }
+
+  .mobile-notes-title {
+    @apply text-2xl font-semibold leading-tight;
+  }
+
+  .mobile-notes-tags {
+    @apply text-[11px] text-amber-600;
+  }
+
+  .mobile-notes-body {
+    @apply space-y-3 text-sm leading-relaxed;
+  }
+
+  .mobile-notes-toolbar {
+    @apply flex justify-center gap-2 pt-2 border-t border-slate-200;
+  }
+
+  .mobile-notes-dot {
+    @apply w-1.5 h-1.5 rounded-full bg-slate-400;
+  }
+
+  .mobile-github-card {
+    @apply bg-white/95 rounded-3xl px-4 py-4 space-y-3 shadow-sm;
+  }
+
+  .mobile-github-header {
+    @apply flex items-center gap-3;
+  }
+
+  .mobile-github-avatar {
+    @apply w-9 h-9 rounded-full bg-slate-200 text-slate-900 flex items-center justify-center text-xs font-semibold;
+  }
+
+  .mobile-github-avatar-img {
+    @apply w-9 h-9 rounded-full border border-slate-200 object-cover;
+  }
+
+  .mobile-github-username {
+    @apply text-sm font-semibold text-slate-900;
+  }
+
+  .mobile-github-text {
+    @apply text-xs text-slate-500;
+  }
+
+  .mobile-github-button {
+    @apply inline-flex text-xs font-medium px-3 py-1.5 rounded-full bg-slate-200 text-slate-900;
+  }
+
+  .mobile-github-section-title {
+    @apply text-xs font-semibold text-slate-500;
+  }
+
+  .mobile-github-list {
+    @apply mt-1 space-y-2;
+  }
+
+  .mobile-github-row {
+    @apply flex items-center justify-between py-2;
+  }
+
+  .mobile-github-label {
+    @apply text-xs text-slate-900;
+  }
+
+  .mobile-github-chevron {
+    @apply text-xs text-slate-400;
+  }
+
+  .mobile-github-stats {
+    @apply mt-3 flex justify-around text-[11px] text-slate-600;
+  }
+
+  .mobile-github-pin-card {
+    @apply block bg-slate-50 rounded-2xl px-3 py-2 text-xs text-slate-900;
+  }
+
+  .mobile-github-pin-title {
+    @apply font-semibold;
+  }
+
+  .mobile-github-pin-desc {
+    @apply text-[11px] text-slate-600 mt-0.5;
+  }
+
+  .mobile-github-pin-meta {
+    @apply text-[11px] text-slate-500 mt-1;
+  }
+
+  .mobile-github-pin-skeleton {
+    @apply h-10 rounded-2xl bg-slate-100;
+  }
+
+  .mobile-github-contrib-summary {
+    @apply text-[11px] text-slate-500;
+  }
+
+  .mobile-github-heatmap {
+    @apply flex gap-[2px] overflow-x-auto;
+  }
+
+  .mobile-github-heatmap-column {
+    @apply flex flex-col gap-[2px];
+  }
+
+  .mobile-github-heatmap-day {
+    @apply w-2 h-2 rounded-[2px] border border-black/5;
+  }
+
+  .mobile-contact-header {
+    @apply flex flex-col items-center gap-2 mb-3;
+  }
+
+  .mobile-contact-avatar {
+    @apply w-16 h-16 rounded-full bg-slate-200 text-slate-900 flex items-center justify-center text-2xl font-semibold;
+  }
+
+  .mobile-contact-name {
+    @apply text-base font-semibold text-slate-900;
+  }
+
+  .mobile-contact-note {
+    @apply text-xs text-slate-500;
+  }
+
+  .mobile-contact-list {
+    @apply mt-3 bg-white/95 rounded-3xl divide-y divide-slate-200 shadow-sm;
+  }
+
+  .mobile-contact-row {
+    @apply block px-4 py-3;
+  }
+
+  .mobile-contact-row-label {
+    @apply text-[11px] uppercase tracking-wide text-slate-400;
+  }
+
+  .mobile-contact-row-value {
+    @apply text-sm text-slate-900;
+  }
+
+  .mobile-safari-search {
+    @apply flex items-center gap-2 bg-white/95 rounded-2xl px-3 py-2 mb-3 shadow-sm;
+  }
+
+  .mobile-safari-search input {
+    @apply w-full text-xs text-slate-600 placeholder:text-slate-400 bg-transparent outline-none;
+  }
+
+  .mobile-safari-dot {
+    @apply w-2 h-2 rounded-full bg-slate-400;
+  }
+
+  .mobile-safari-card {
+    @apply bg-white/95 rounded-3xl flex gap-3 px-3 py-3 shadow-sm;
+  }
+
+  .mobile-safari-thumb {
+    @apply w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden;
+  }
+
+  .mobile-safari-thumb img {
+    @apply max-w-full max-h-full object-contain;
+  }
+
+  .mobile-safari-body {
+    @apply flex-1 space-y-1;
+  }
+
+  .mobile-safari-title {
+    @apply text-sm font-semibold text-slate-900;
+  }
+
+  .mobile-safari-meta {
+    @apply text-[11px] text-slate-500;
+  }
+
+  .mobile-safari-link {
+    @apply inline-flex text-[11px] text-sky-600 font-medium;
+  }
+
+  .mobile-skills {
+    @apply space-y-3;
+  }
+
+  .mobile-skills-card {
+    @apply bg-white/95 rounded-3xl px-4 py-3 shadow-sm space-y-2;
+  }
+
+  .mobile-skills-category {
+    @apply text-xs font-semibold text-slate-600 uppercase tracking-wide;
+  }
+
+  .mobile-skills-list {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .mobile-skills-pill {
+    @apply text-[11px] px-2.5 py-1 rounded-full bg-slate-100 text-slate-800;
+  }
+
+  .mobile-resume-card {
+    @apply bg-white/95 rounded-3xl px-4 py-4 shadow-sm space-y-2;
+  }
+
+  .mobile-resume-title {
+    @apply text-sm font-semibold text-slate-900;
+  }
+
+  .mobile-resume-text {
+    @apply text-xs text-slate-600;
+  }
+
+  .mobile-resume-button {
+    @apply inline-flex items-center justify-center rounded-full bg-slate-200 text-slate-900 px-4 py-2 text-xs font-medium;
   }
 
   #welcome {
@@ -86,7 +363,7 @@ body {
     }
 
     .tooltip {
-      @apply !py-1 !px-3 !w-fit !text-center !text-xs !rounded-md !bg-blue-200 !text-blue-900 !shadow-2xl;
+      @apply py-1! px-3! w-fit! text-center! text-xs! rounded-md! bg-blue-200! text-blue-900! shadow-2xl!;
     }
 
     .dock-icon {
@@ -119,7 +396,7 @@ body {
   }
 
   #safari {
-    @apply w-4xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-[90vw] max-w-4xl absolute top-24 left-1/2 -translate-x-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     .search {
       @apply flex items-center gap-3 w-2/3 bg-white border border-gray-300 rounded-lg px-3 py-2;
@@ -163,7 +440,7 @@ body {
   }
 
   #terminal {
-    @apply w-xl absolute top-32 left-1/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-[90vw] max-w-xl absolute top-24 left-1/2 -translate-x-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
       @apply font-bold text-sm text-center w-full;
@@ -209,7 +486,7 @@ body {
   }
 
   #contact {
-    @apply max-w-2xl absolute top-60 left-5/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-[90vw] max-w-2xl absolute top-28 left-1/2 -translate-x-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
       @apply font-bold text-sm text-center w-full;
@@ -237,7 +514,7 @@ body {
   }
 
   #photos {
-    @apply w-4xl max-h-[80vh] absolute top-20 left-[20%] bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-[90vw] max-w-4xl max-h-[80vh] absolute top-20 left-1/2 -translate-x-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     .github-content {
       @apply p-5 bg-white space-y-5 overflow-y-auto max-h-[72vh];
@@ -297,7 +574,7 @@ body {
   }
 
   #resume {
-    @apply w-fit h-fit absolute top-16 left-7/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-[90vw] max-w-[840px] h-fit absolute top-16 left-1/2 -translate-x-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     #window-header {
       h2 {
@@ -307,7 +584,7 @@ body {
   }
 
   #finder {
-    @apply absolute w-3xl left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
+    @apply absolute w-[90vw] max-w-3xl left-1/2 -translate-x-1/2 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
 
     .sidebar {
       @apply w-48 bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3;
@@ -351,7 +628,7 @@ body {
   }
 
   #txtfile {
-    @apply w-md absolute top-36 right-32 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-[90vw] max-w-md absolute top-32 left-1/2 -translate-x-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
       @apply font-bold text-sm text-center w-full;
@@ -359,7 +636,7 @@ body {
   }
 
   #imgfile {
-    @apply w-xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-[90vw] max-w-xl absolute top-40 left-1/2 -translate-x-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     #window-header {
       p {
