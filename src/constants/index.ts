@@ -94,14 +94,14 @@ const blogPosts = [
     title:
       "ATHENA — Workflow Automation Platform",
     image: "/images/athena-logo.svg",
-    link: "https://athena-vn52.vercel.app",
+    link: "https://athena-vn52.vercel.app/landing",
   },
   {
     id: 2,
     date: "Aug 28, 2025",
     title: "ROME — AI Powered Browser IDE",
     image: "/images/rome-logo.svg",
-    link: "https://rome-black.vercel.app",
+    link: "https://rome-black.vercel.app/landing",
   },
 ];
 
@@ -248,7 +248,7 @@ const WORK_LOCATION = {
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://rome-black.vercel.app/",
+          href: "https://rome-black.vercel.app/landing",
           position: "top-10 right-20",
         },
         {
@@ -293,7 +293,7 @@ const WORK_LOCATION = {
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://athena-vn52.vercel.app/",
+          href: "https://athena-vn52.vercel.app/landing",
           position: "top-20 left-20",
         },
         {
